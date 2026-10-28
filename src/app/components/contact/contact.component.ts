@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
   // Get a free key at https://web3forms.com (enter your email, the key arrives by mail) and paste it here.
-  private readonly ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  private readonly ACCESS_KEY = '2f957722-4907-4b52-8cb5-10c614c88cd6';
   private readonly EMAIL = 'zienabamr2372005@gmail.com';
 
   status: 'idle' | 'sending' | 'sent' | 'error' = 'idle';
