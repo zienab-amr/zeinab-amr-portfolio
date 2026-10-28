@@ -1,0 +1,53 @@
+<section class="section container projects-section fade-in is-visible" id="projects">
+
+    <div class="projects-header">
+        <div>
+            <span class="section-eyebrow">FEATURED WORK</span>
+            <h2 class="section-title">Projects</h2>
+        </div>
+        
+        <a href="https://github.com/zienab-amr" target="_blank" class="view-all-link">
+            View all on GitHub <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="glass-card project-card" *ngFor="let project of projects">
+
+            <div class="project-img-wrapper">
+                
+                <img *ngIf="project.image; else noImg" [src]="project.image" [alt]="project.name" class="project-img">
+                <ng-template #noImg><div class="img-placeholder"><i class="fas fa-code"></i></div></ng-template>
+                
+                <div class="project-overlay">
+                    <a [href]="project.github" target="_blank" class="btn btn--ghost btn--sm">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a *ngIf="project.live" [href]="project.live" target="_blank" class="btn btn--primary btn--sm">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="project-content">
+                
+                <h3 class="project-title">{{ project.name }}</h3>
+                <p class="text-secondary project-desc">{{ project.description }}</p>
+
+                <div class="tech-stack">
+                    <span 
+                        class="badge badge--primary" 
+                        *ngFor="let tech of project.technologies">
+                        {{ tech }}
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

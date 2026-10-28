@@ -1,0 +1,48 @@
+<section class="section container experience-section fade-in is-visible" id="experience">
+
+  <div class="section-header">
+    <span class="section-eyebrow">WORK HISTORY</span>
+    <h2 class="section-title">Experience & Training</h2>
+  </div>
+
+  <div class="timeline">
+    
+    <div class="timeline-line"></div>
+
+    <div 
+      class="timeline-item" 
+      *ngFor="let exp of experiences; let i = index" 
+      [ngClass]="{'left-side': i % 2 === 0, 'right-side': i % 2 !== 0}">
+      
+      <div class="timeline-dot"></div>
+
+      <div class="glass-card exp-card">
+        
+        <h3 class="exp-title">{{ exp.title }}</h3>
+        
+        <div class="exp-meta">
+          <span class="exp-company">{{ exp.company }}</span>
+          
+          <span class="exp-date">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            {{ exp.period }}
+          </span>
+        </div>
+
+        <p class="text-secondary exp-desc">
+          {{ exp.description }}
+        </p>
+
+        <div class="tech-stack">
+          <span class="badge badge--accent" *ngFor="let tech of exp.technologies">
+            {{ tech }}
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,52 @@
+<section class="section container about-section fade-in is-visible" id="about">
+  
+  <div class="about-visual">
+    
+    <div class="image-wrapper">
+
+      <img src="assets/Web-Designer.jpg" width="50" alt="Zeinab Amr" class="about-img">
+    </div>
+
+    <div class="floating-address glass-card">
+      <div class="map-logo">
+
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </div>
+      
+      <div class="address-info">
+        <span class="text-xs text-muted">Based in</span>
+        <span class="text-sm font-semibold">Cairo, Egypt 🇪🇬</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="about-content">
+    
+    <span class="section-eyebrow">ABOUT ME</span>
+    
+    <h2 class="section-title text-left">
+      Building Modern <span class="text-gradient-primary">Web & Mobile Experiences</span>
+    </h2>
+    
+    <p class="text-secondary about-text">
+      I\'m a Computer Science student at Ain Shams University and a .NET developer who enjoys building
+      secure, scalable backend systems. I design REST APIs with ASP.NET Core, JWT, and SQL Server, build
+      database-driven RBAC, and connect them to Flutter and Angular frontends. I also work with Node.js,
+      Express.js, and MongoDB, and I care about clean architecture and maintainable code.
+    </p>
+
+    <div class="about-stats">
+
+      <div class="glass-card stat-card" *ngFor="let stat of stats">
+        <h4 class="stat-value text-gradient-accent">{{ stat.value }}</h4>
+        <p class="stat-title">{{ stat.title }}</p>
+      </div>
+    </div>
+    
+  </div>
+  
+</section>

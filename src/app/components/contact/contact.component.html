@@ -1,0 +1,73 @@
+<section class="section container contact-section fade-in is-visible" id="contact">
+
+    <div class="contact-content">
+        
+        <span class="section-eyebrow">LET'S CONNECT</span>
+        
+        <h2 class="section-title text-left">
+            Ready to build <br>
+            <span class="text-gradient-accent">something great?</span>
+        </h2>
+        
+        <p class="text-secondary contact-desc">
+            I'm currently open to internship opportunities, especially in .NET backend development.
+            Send me a message and I'll get back to you.
+        </p>
+
+        <div class="contact-info-list">
+            
+            <a [href]="item.link" class="info-card glass-card" *ngFor="let item of contactDetails">
+                
+                <div class="info-icon">
+                    <i class="fas fa-{{ item.icon }}"></i>
+                </div>
+                
+                <div class="info-text">
+                    <span class="info-label">{{ item.label }}</span>
+                    <span class="info-value">{{ item.value }}</span>
+                </div>
+                
+            </a>
+
+        </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+        
+        <form #f class="glass-card contact-form" (submit)="send($event, f, n.value, em.value, sub.value, msg.value, bot.checked)">
+            
+            <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input #n type="text" class="form-input" placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input #em type="email" class="form-input" placeholder="you@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Subject</label>
+                <input #sub type="text" class="form-input" placeholder="Internship / Project Inquiry">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea #msg class="form-input" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+
+            <input #bot type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <button type="submit" class="btn btn--primary btn--submit" [disabled]="status === 'sending'">
+                <i class="fas" [ngClass]="status === 'sending' ? 'fa-spinner fa-spin' : 'fa-paper-plane'"></i>
+                {{ status === 'sending' ? 'Sending...' : 'Send Message' }}
+            </button>
+
+            <p class="form-status ok" *ngIf="status === 'sent'"><i class="fas fa-check-circle"></i> Message sent. I'll reply to your email soon.</p>
+            <p class="form-status err" *ngIf="status === 'error'"><i class="fas fa-exclamation-circle"></i> Couldn't send. Please email me directly at zienabamr2372005@gmail.com.</p>
+
+        </form>
+
+    </div>
+
+</section>

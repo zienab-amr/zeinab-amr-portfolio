@@ -1,0 +1,65 @@
+<footer class="footer section pb-0">
+  
+  <div class="container">
+    
+    <div class="divider-h mb-12"></div>
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        
+        <a href="#" class="logo-container">
+          <div class="logo-badge">ZA</div>
+          <span class="logo-text">Zeinab.dev</span>
+        </a>
+
+        <p class="text-secondary mt-4">
+          Building secure backend systems and modern web & mobile
+          experiences with .NET, Angular, Flutter, and Node.js.
+        </p>
+        
+      </div>
+
+      <div class="footer-links">
+        
+        <h4 class="footer-heading">Quick Links</h4>
+        
+        <ul>
+          <li *ngFor="let section of sections">
+            <a [href]="section.href" class="footer-link">
+              {{ section.label }}
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-contact">
+        
+        <h4 class="footer-heading">Connect</h4>
+        
+        <p class="text-secondary mb-4">
+          Available for internships, freelance projects,
+          and exciting collaborations worldwide 🌍
+        </p>
+
+        <div class="social-links">
+          <a href="https://github.com/zienab-amr" target="_blank" rel="noopener" class="btn btn--icon"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/zeinabamr/" target="_blank" rel="noopener" class="btn btn--icon"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:zienabamr2372005@gmail.com" class="btn btn--icon"><i class="fas fa-envelope"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="text-muted text-sm text-center">
+        © 2026 Zeinab Amr. Built with Angular, passion,
+        and countless cups of coffee ☕.
+      </p>
+    </div>
+
+  </div>
+
+</footer>

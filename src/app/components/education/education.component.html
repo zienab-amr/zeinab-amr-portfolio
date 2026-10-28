@@ -1,0 +1,62 @@
+<section class="section container education-section" id="education">
+
+  <div class="section-header">
+    <span class="section-eyebrow">ACADEMIC BACKGROUND</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+
+  <!-- Main Education -->
+  <div class="glass-card education-main">
+
+    <div class="edu-icon">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+
+    <div class="education-content">
+
+      <h3>Bachelor of Computer Science</h3>
+
+      <h4>Faculty of Science, Ain Shams University</h4>
+
+      <div class="education-meta">
+
+        <span>
+          <i class="far fa-calendar-alt"></i>
+          2023 — 2027
+        </span>
+
+        <span class="badge badge--highlight">
+          Expected Graduation
+        </span>
+
+      </div>
+
+      <p>
+        Studying Computer Science with a focus on Software Engineering,
+        Data Structures, Algorithms, Databases, Operating Systems and
+        Object-Oriented Programming.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Trainings -->
+
+  <h3 class="training-title">
+    Professional Training
+  </h3>
+
+  <div class="training-grid">
+
+    <div class="glass-card training-card" *ngFor="let t of trainings">
+      <div class="edu-icon"><i class="fas fa-{{ t.icon }}"></i></div>
+      <h4>{{ t.name }}</h4>
+      <span class="company">{{ t.company }}</span>
+      <span class="date">{{ t.date }}</span>
+      <span class="badge" [class.badge--highlight]="t.highlight">{{ t.badge }}</span>
+    </div>
+
+  </div>
+
+</section>

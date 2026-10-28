@@ -1,0 +1,26 @@
+<section class="section container apart-section fade-in is-visible">
+  
+  <div class="section-header">
+    <span class="section-eyebrow">WHY HIRE ME</span>
+    <h2 class="section-title">What sets me apart</h2>
+  </div>
+
+  <div class="cards-grid">
+    
+    <div class="glass-card soft-card" *ngFor="let soft of softs">
+
+      <div 
+        class="icon-wrapper" 
+        [style.backgroundColor]="soft.bg" 
+        [style.color]="soft.color">
+        <i class="fas fa-{{ soft.icon }}"></i>
+      </div>
+
+      <h4 class="card-title">{{ soft.title }}</h4>
+      <p class="text-secondary card-desc">{{ soft.description }}</p>
+
+    </div>
+
+  </div>
+  
+</section>

@@ -1,0 +1,122 @@
+.timeline {
+  position: relative;
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: var(--space-4) 0;
+}
+
+.timeline-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: var(--gradient-line-v);
+  top: 0;
+  
+  left: 16px; 
+  transform: translateX(-50%);
+  z-index: var(--z-base);
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding-left: var(--space-10);
+  margin-bottom: var(--space-8);
+}
+
+.timeline-item .timeline-dot {
+  position: absolute;
+  left: 16px;
+  top: var(--space-8); 
+  transform: translate(-50%, -50%);
+}
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--card-padding);
+}
+
+.exp-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.exp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.exp-company {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-blue-400); 
+  font-weight: var(--fw-semibold);
+}
+
+.exp-date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1h);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-1h) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg-light);
+}
+
+.exp-desc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  
+  /* نقل الخط للمنتصف تماماً */
+  .timeline-line {
+    left: 50%;
+  }
+
+  .timeline-item {
+    width: 50%;
+    padding: 0;
+  }
+
+  .left-side {
+    left: 0;
+    padding-right: var(--space-10);
+  }
+  
+  .left-side .timeline-dot {
+    left: 100%;
+  }
+
+  .right-side {
+    left: 50%;
+    padding-left: var(--space-10);
+  }
+  
+  .right-side .timeline-dot {
+    left: 0;
+  }
+  
+  .right-side .exp-card {
+    align-items: flex-start;
+  }
+}

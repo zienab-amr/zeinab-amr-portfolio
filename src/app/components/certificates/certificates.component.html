@@ -1,0 +1,39 @@
+<section class="section container certificates-section fade-in is-visible" id="certificates">
+
+  <!-- رأس القسم -->
+  <div class="section-header">
+    <span class="section-eyebrow">CREDENTIALS</span>
+    <h2 class="section-title">Certificates</h2>
+  </div>
+
+  <div class="certificates-grid">
+
+    <div class="glass-card cert-card" *ngFor="let certificate of certificates">
+
+      <div class="cert-img-wrapper">
+        <img *ngIf="certificate.image; else noImg" [src]="certificate.image" [alt]="certificate.title" class="cert-img">
+        <ng-template #noImg><div class="img-placeholder"><i class="fas fa-certificate"></i></div></ng-template>
+      </div>
+
+      <div class="cert-content">
+        
+        <div class="cert-header">
+          <h3 class="cert-title">{{ certificate.title }}</h3>
+          <p class="cert-issuer text-secondary">{{ certificate.issuer }}</p>
+        </div>
+
+        <div class="cert-footer">
+          <span class="badge badge--primary">{{ certificate.year }}</span>
+          
+          <a *ngIf="certificate.credential" [href]="certificate.credential" target="_blank" class="cert-link">
+            View Certificate <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

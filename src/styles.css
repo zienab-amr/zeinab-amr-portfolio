@@ -1,1 +1,1140 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║         AHMED MOSTAFA — PORTFOLIO DESIGN SYSTEM v1.0            ║
+ * ║         Complete Token Library · Angular-ready CSS Variables     ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * Usage in Angular:
+ *   1. Import in styles.scss → @import 'design-system/design-system.css';
+ *   2. Every token is available globally as var(--token-name)
+ *   3. Component-level overrides: apply tokens inside :host { }
+ *
+ * Table of Contents
+ * ─────────────────
+ *  01 · Color Palette
+ *  02 · Semantic Color Tokens
+ *  03 · Typography
+ *  04 · Spacing Scale
+ *  05 · Border Radius
+ *  06 · Shadows & Glows
+ *  07 · Gradients
+ *  08 · Glassmorphism
+ *  09 · Blur Values
+ *  10 · Button Styles
+ *  11 · Card Styles
+ *  12 · Icon Sizes
+ *  13 · Section & Container Spacing
+ *  14 · Responsive Breakpoints
+ *  15 · Hover & Interaction Effects
+ *  16 · Animation Durations & Easings
+ *  17 · Z-Index Scale
+ *  18 · Opacity Scale
+ *  19 · Component Utility Classes
+ */
+
+
+/* ═══════════════════════════════════════════════════
+   01 · COLOR PALETTE
+   Raw color values — never use directly in components;
+   always reference the semantic tokens in §02.
+═══════════════════════════════════════════════════ */
+:root {
+
+  /* ── Blue family ── */
+  --color-blue-50:  #EFF6FF;   /* rgb(239, 246, 255) */
+  --color-blue-100: #DBEAFE;   /* rgb(219, 234, 254) */
+  --color-blue-200: #BFDBFE;   /* rgb(191, 219, 254) */
+  --color-blue-300: #93C5FD;   /* rgb(147, 197, 253) */
+  --color-blue-400: #60A5FA;   /* rgb(96,  165, 250) */
+  --color-blue-500: #3B82F6;   /* rgb(59,  130, 246) */
+  --color-blue-600: #2563EB;   /* rgb(37,   99, 235) ← Primary */
+  --color-blue-700: #1D4ED8;   /* rgb(29,   78, 216) */
+  --color-blue-800: #1E40AF;   /* rgb(30,   64, 175) */
+  --color-blue-900: #1E3A8A;   /* rgb(30,   58, 138) */
+
+  /* ── Purple family ── */
+  --color-purple-50:  #F5F3FF;  /* rgb(245, 243, 255) */
+  --color-purple-100: #EDE9FE;  /* rgb(237, 233, 254) */
+  --color-purple-200: #DDD6FE;  /* rgb(221, 214, 254) */
+  --color-purple-300: #C4B5FD;  /* rgb(196, 181, 253) */
+  --color-purple-400: #A78BFA;  /* rgb(167, 139, 250) */
+  --color-purple-500: #8B5CF6;  /* rgb(139,  92, 246) */
+  --color-purple-600: #7C3AED;  /* rgb(124,  58, 237) ← Secondary */
+  --color-purple-700: #6D28D9;  /* rgb(109,  40, 217) */
+  --color-purple-800: #5B21B6;  /* rgb(91,   33, 182) */
+  --color-purple-900: #4C1D95;  /* rgb(76,   29, 149) */
+
+  /* ── Cyan family ── */
+  --color-cyan-50:  #ECFEFF;   /* rgb(236, 254, 255) */
+  --color-cyan-100: #CFFAFE;   /* rgb(207, 250, 254) */
+  --color-cyan-200: #A5F3FC;   /* rgb(165, 243, 252) */
+  --color-cyan-300: #67E8F9;   /* rgb(103, 232, 249) */
+  --color-cyan-400: #22D3EE;   /* rgb(34,  211, 238) */
+  --color-cyan-500: #06B6D4;   /* rgb(6,   182, 212) ← Accent */
+  --color-cyan-600: #0891B2;   /* rgb(8,   145, 178) */
+  --color-cyan-700: #0E7490;   /* rgb(14,  116, 144) */
+
+  /* ── Amber / Highlight ── */
+  --color-amber-400: #FBBF24;  /* rgb(251, 191,  36) */
+  --color-amber-500: #F59E0B;  /* rgb(245, 158,  11) ← Highlight */
+  --color-amber-600: #D97706;  /* rgb(217, 119,   6) */
+
+  /* ── Emerald (success) ── */
+  --color-emerald-400: #34D399; /* rgb(52,  211, 153) */
+  --color-emerald-500: #10B981; /* rgb(16,  185, 129) */
+
+  /* ── Rose (error / danger) ── */
+  --color-rose-400: #FB7185;   /* rgb(251, 113, 133) */
+  --color-rose-500: #F43F5E;   /* rgb(244,  63,  94) */
+
+  /* ── Neutral / Background family ── */
+  --color-neutral-950: #0B1120; /* rgb(11,  17,  32)  ← Page background */
+  --color-neutral-900: #111827; /* rgb(17,  24,  39)  ← Surface */
+  --color-neutral-800: #1F2937; /* rgb(31,  41,  55)  ← Card */
+  --color-neutral-700: #374151; /* rgb(55,  65,  81)  ← Elevated card */
+  --color-neutral-600: #4B5563; /* rgb(75,  85,  99)  ← Border stronger */
+  --color-neutral-500: #6B7280; /* rgb(107, 114, 128) */
+  --color-neutral-400: #9CA3AF; /* rgb(156, 163, 175) */
+  --color-neutral-300: #CBD5E1; /* rgb(203, 213, 225) ← Secondary text */
+  --color-neutral-200: #E2E8F0; /* rgb(226, 232, 240) */
+  --color-neutral-100: #F1F5F9; /* rgb(241, 245, 249) */
+  --color-neutral-50:  #F9FAFB; /* rgb(249, 250, 251) ← Primary text */
+
+  /* ── Pure ── */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+
+/* ═══════════════════════════════════════════════════
+   02 · SEMANTIC COLOR TOKENS
+   Reference these in all component styles.
+═══════════════════════════════════════════════════ */
+
+  /* Background layers */
+  --bg-page:       var(--color-neutral-950); /* #0B1120 — outermost canvas */
+  --bg-surface:    var(--color-neutral-900); /* #111827 — panels, navbars */
+  --bg-card:       var(--color-neutral-800); /* #1F2937 — all cards */
+  --bg-card-hover: var(--color-neutral-700); /* #374151 — card on hover */
+  --bg-overlay:    rgba(11, 17, 32, 0.85);   /* modal scrims */
+  --bg-input:      rgba(255, 255, 255, 0.05);
+
+  /* Brand */
+  --color-primary:          var(--color-blue-600);   /* #2563EB */
+  --color-primary-hover:    var(--color-blue-700);   /* #1D4ED8 */
+  --color-primary-muted:    rgba(37, 99, 235, 0.15);
+  --color-primary-border:   rgba(37, 99, 235, 0.35);
+  --color-primary-glow:     rgba(37, 99, 235, 0.40);
+
+  --color-secondary:        var(--color-purple-600);  /* #7C3AED */
+  --color-secondary-hover:  var(--color-purple-700);  /* #6D28D9 */
+  --color-secondary-muted:  rgba(124, 58, 237, 0.15);
+  --color-secondary-border: rgba(124, 58, 237, 0.35);
+  --color-secondary-glow:   rgba(124, 58, 237, 0.40);
+
+  --color-accent:           var(--color-cyan-500);    /* #06B6D4 */
+  --color-accent-hover:     var(--color-cyan-600);    /* #0891B2 */
+  --color-accent-muted:     rgba(6, 182, 212, 0.15);
+  --color-accent-border:    rgba(6, 182, 212, 0.35);
+  --color-accent-glow:      rgba(6, 182, 212, 0.40);
+
+  --color-highlight:        var(--color-amber-500);   /* #F59E0B */
+  --color-highlight-muted:  rgba(245, 158, 11, 0.15);
+  --color-highlight-border: rgba(245, 158, 11, 0.35);
+
+  --color-success:          var(--color-emerald-500);
+  --color-success-muted:    rgba(16, 185, 129, 0.15);
+  --color-error:            var(--color-rose-500);
+  --color-error-muted:      rgba(244, 63, 94, 0.15);
+
+  /* Text */
+  --text-primary:    var(--color-neutral-50);   /* #F9FAFB */
+  --text-secondary:  var(--color-neutral-300);  /* #CBD5E1 */
+  --text-muted:      var(--color-neutral-500);  /* #6B7280 */
+  --text-disabled:   var(--color-neutral-600);  /* #4B5563 */
+  --text-on-primary: var(--color-white);
+  --text-inverse:    var(--color-neutral-950);
+
+  /* Border */
+  --border-default:  rgba(255, 255, 255, 0.08);
+  --border-subtle:   rgba(255, 255, 255, 0.05);
+  --border-strong:   rgba(255, 255, 255, 0.14);
+  --border-primary:  var(--color-primary-border);
+  --border-focus:    var(--color-primary);
+
+
+/* ═══════════════════════════════════════════════════
+   03 · TYPOGRAPHY
+═══════════════════════════════════════════════════ */
+
+  /* Font families */
+  --font-display: 'Poppins', system-ui, sans-serif;    /* headings, logo, labels */
+  --font-body:    'Inter', system-ui, sans-serif;       /* body copy, UI text */
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace; /* code snippets */
+
+  /* Font sizes — fluid scale (rem) */
+  --text-2xs:  0.625rem;   /*  10px */
+  --text-xs:   0.75rem;    /*  12px */
+  --text-sm:   0.875rem;   /*  14px */
+  --text-base: 1rem;       /*  16px */
+  --text-lg:   1.125rem;   /*  18px */
+  --text-xl:   1.25rem;    /*  20px */
+  --text-2xl:  1.5rem;     /*  24px */
+  --text-3xl:  1.875rem;   /*  30px */
+  --text-4xl:  2.25rem;    /*  36px */
+  --text-5xl:  3rem;       /*  48px */
+  --text-6xl:  3.75rem;    /*  60px */
+  --text-7xl:  4.5rem;     /*  72px */
+  --text-8xl:  6rem;       /*  96px */
+  --text-9xl:  8rem;       /* 128px */
+
+  /* Font weights */
+  --fw-thin:        100;
+  --fw-light:       300;
+  --fw-regular:     400;
+  --fw-medium:      500;
+  --fw-semibold:    600;
+  --fw-bold:        700;
+  --fw-extrabold:   800;
+  --fw-black:       900;
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose:   2;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight:   -0.025em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.025em;
+  --tracking-wider:    0.05em;
+  --tracking-widest:   0.1em;
+
+
+/* ═══════════════════════════════════════════════════
+   04 · SPACING SCALE  (8-pt grid)
+═══════════════════════════════════════════════════ */
+
+  --space-0:   0;
+  --space-px:  1px;
+  --space-0h:  0.125rem;  /*  2px */
+  --space-1:   0.25rem;   /*  4px */
+  --space-1h:  0.375rem;  /*  6px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-2h:  0.625rem;  /* 10px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-7:   1.75rem;   /* 28px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-14:  3.5rem;    /* 56px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-28:  7rem;      /* 112px */
+  --space-32:  8rem;      /* 128px */
+  --space-40: 10rem;      /* 160px */
+  --space-48: 12rem;      /* 192px */
+  --space-56: 14rem;      /* 224px */
+  --space-64: 16rem;      /* 256px */
+
+
+/* ═══════════════════════════════════════════════════
+   05 · BORDER RADIUS
+═══════════════════════════════════════════════════ */
+
+  --radius-none:   0;
+  --radius-xs:     0.25rem;   /*  4px */
+  --radius-sm:     0.5rem;    /*  8px */
+  --radius-md:     0.75rem;   /* 12px */
+  --radius-lg:     1rem;      /* 16px */
+  --radius-xl:     1.25rem;   /* 20px  ← Gallery cards */
+  --radius-2xl:    1.5rem;    /* 24px  ← Standard cards */
+  --radius-3xl:    1.875rem;  /* 30px  ← Large cards, sections */
+  --radius-4xl:    2.5rem;    /* 40px  ← Hero avatar */
+  --radius-full:   9999px;    /* Pill badges, avatars */
+
+
+/* ═══════════════════════════════════════════════════
+   06 · SHADOWS & GLOWS
+═══════════════════════════════════════════════════ */
+
+  /* Elevation shadows (dark-optimised) */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md:   0 4px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg:   0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl:   0 16px 60px rgba(0, 0, 0, 0.55);
+  --shadow-2xl:  0 32px 80px rgba(0, 0, 0, 0.6);
+  --shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+
+  /* Glow shadows — brand colours */
+  --glow-primary:   0 0 20px rgba(37,  99, 235, 0.35),
+                    0 0 60px rgba(37,  99, 235, 0.15);
+  --glow-secondary: 0 0 20px rgba(124, 58, 237, 0.35),
+                    0 0 60px rgba(124, 58, 237, 0.15);
+  --glow-accent:    0 0 20px rgba(6,  182, 212, 0.35),
+                    0 0 60px rgba(6,  182, 212, 0.15);
+  --glow-highlight: 0 0 20px rgba(245, 158, 11, 0.35),
+                    0 0 60px rgba(245, 158, 11, 0.15);
+
+  /* Card-specific glow ring */
+  --glow-card-primary:   inset 0 0 0 1.5px rgba(37,  99, 235, 0.5);
+  --glow-card-secondary: inset 0 0 0 1.5px rgba(124, 58, 237, 0.5);
+  --glow-card-accent:    inset 0 0 0 1.5px rgba(6,  182, 212, 0.5);
+
+  /* Composite card shadow */
+  --shadow-card:       var(--shadow-md);
+  --shadow-card-hover: var(--shadow-xl), var(--glow-primary);
+
+
+/* ═══════════════════════════════════════════════════
+   07 · GRADIENTS
+═══════════════════════════════════════════════════ */
+
+  /* Brand gradients */
+  --gradient-primary:          linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-primary-reverse:  linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+  --gradient-accent:           linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+  --gradient-tri:              linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+  --gradient-warm:             linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  --gradient-success:          linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+
+  /* Text clip gradients (apply to text via background-clip: text) */
+  --gradient-text-primary:   linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-text-accent:    linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+  --gradient-text-tri:       linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+  --gradient-text-highlight: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+
+  /* Background gradients */
+  --gradient-page-top:     linear-gradient(180deg, rgba(37,99,235,0.05) 0%, transparent 40%);
+  --gradient-page-bottom:  linear-gradient(0deg, rgba(124,58,237,0.05) 0%, transparent 40%);
+  --gradient-section-alt:  linear-gradient(180deg, transparent, rgba(17,24,39,0.5) 50%, transparent);
+
+  /* Overlay gradients (images) */
+  --gradient-img-bottom:   linear-gradient(0deg, rgba(11,17,32,0.95) 0%, rgba(11,17,32,0.3) 55%, transparent 100%);
+  --gradient-img-full:     linear-gradient(180deg, rgba(11,17,32,0.2) 0%, rgba(11,17,32,0.9) 100%);
+
+  /* Divider / line gradients */
+  --gradient-line-h: linear-gradient(90deg, transparent, rgba(37,99,235,0.5), rgba(124,58,237,0.4), transparent);
+  --gradient-line-v: linear-gradient(180deg, transparent, rgba(37,99,235,0.5) 20%, rgba(124,58,237,0.5) 80%, transparent);
+
+  /* Radial blobs */
+  --gradient-blob-blue:   radial-gradient(circle, #2563EB 0%, transparent 70%);
+  --gradient-blob-purple: radial-gradient(circle, #7C3AED 0%, transparent 70%);
+  --gradient-blob-cyan:   radial-gradient(circle, #06B6D4 0%, transparent 70%);
+
+
+/* ═══════════════════════════════════════════════════
+   08 · GLASSMORPHISM
+   Composable — combine background + border + blur.
+═══════════════════════════════════════════════════ */
+
+  /* Glass backgrounds */
+  --glass-bg-light:  rgba(255, 255, 255, 0.04);
+  --glass-bg-medium: rgba(255, 255, 255, 0.07);
+  --glass-bg-strong: rgba(255, 255, 255, 0.12);
+  --glass-bg-card:   rgba(31, 41, 55, 0.65);    /* card glass */
+  --glass-bg-nav:    rgba(11, 17, 32, 0.85);     /* sticky nav */
+  --glass-bg-modal:  rgba(7, 11, 22, 0.93);      /* lightbox */
+
+  /* Glass borders */
+  --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.05);
+  --glass-border-base:   1px solid rgba(255, 255, 255, 0.08);
+  --glass-border-medium: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-border-strong: 1px solid rgba(255, 255, 255, 0.18);
+
+  /* Shorthand glass panel presets */
+  --glass-card:
+    background: var(--glass-bg-card),
+    border: var(--glass-border-base),
+    backdrop-filter: blur(var(--blur-card));
+
+  --glass-nav:
+    background: var(--glass-bg-nav),
+    border-bottom: var(--glass-border-subtle),
+    backdrop-filter: blur(var(--blur-nav));
+
+  --glass-modal:
+    background: var(--glass-bg-modal),
+    backdrop-filter: blur(var(--blur-modal));
+
+
+/* ═══════════════════════════════════════════════════
+   09 · BLUR VALUES
+═══════════════════════════════════════════════════ */
+
+  --blur-none:  0px;
+  --blur-xs:    4px;    /* subtle image tints */
+  --blur-sm:    8px;    /* floating pills on hover */
+  --blur-md:    12px;   /* small overlays */
+  --blur-card:  20px;   /* glass cards */
+  --blur-nav:   20px;   /* sticky navbar */
+  --blur-modal: 24px;   /* lightbox overlay */
+  --blur-blob:  100px;  /* ambient background blobs */
+  --blur-blob-lg: 130px; /* large hero blobs */
+
+
+/* ═══════════════════════════════════════════════════
+   10 · BUTTON STYLES
+   Three variants × three sizes.
+═══════════════════════════════════════════════════ */
+
+  /* Sizes */
+  --btn-height-sm:  2rem;       /* 32px */
+  --btn-height-md:  2.625rem;   /* 42px */
+  --btn-height-lg:  3.25rem;    /* 52px */
+
+  --btn-px-sm:      0.875rem;   /* 14px */
+  --btn-px-md:      1.25rem;    /* 20px */
+  --btn-px-lg:      1.75rem;    /* 28px */
+
+  --btn-text-sm:    var(--text-xs);
+  --btn-text-md:    var(--text-sm);
+  --btn-text-lg:    var(--text-base);
+
+  --btn-radius:     var(--radius-xl);
+  --btn-font:       var(--font-body);
+  --btn-weight:     var(--fw-semibold);
+
+  /* Primary button */
+  --btn-primary-bg:         var(--gradient-primary);
+  --btn-primary-color:      var(--color-white);
+  --btn-primary-shadow:     0 0 30px var(--color-primary-glow);
+  --btn-primary-shadow-hover: 0 0 50px var(--color-primary-glow);
+
+  /* Ghost / outline button */
+  --btn-ghost-bg:           rgba(255, 255, 255, 0.05);
+  --btn-ghost-border:       var(--glass-border-medium);
+  --btn-ghost-color:        var(--text-primary);
+  --btn-ghost-bg-hover:     rgba(255, 255, 255, 0.09);
+
+  /* Accent button */
+  --btn-accent-bg:          var(--gradient-accent);
+  --btn-accent-color:       var(--color-white);
+  --btn-accent-shadow:      0 0 30px var(--color-secondary-glow);
+
+  /* Icon-only button */
+  --btn-icon-size:          2.5rem;   /* 40px */
+  --btn-icon-radius:        var(--radius-xl);
+
+  /* Transition */
+  --btn-transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 300ms ease,
+                    background 200ms ease;
+  --btn-scale-hover:  scale(1.05);
+  --btn-scale-active: scale(0.97);
+
+
+/* ═══════════════════════════════════════════════════
+   11 · CARD STYLES
+═══════════════════════════════════════════════════ */
+
+  /* Base card */
+  --card-bg:            var(--glass-bg-card);
+  --card-border:        var(--glass-border-base);
+  --card-radius:        var(--radius-3xl);
+  --card-shadow:        var(--shadow-card);
+  --card-blur:          blur(var(--blur-card));
+  --card-padding:       var(--space-6);
+  --card-padding-lg:    var(--space-8);
+
+  /* Hover state */
+  --card-bg-hover:      rgba(31, 41, 55, 0.8);
+  --card-translate-y:   -8px;
+  --card-transition:    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 500ms ease;
+
+  /* Project card image */
+  --card-img-height:    12rem;    /* 192px */
+  --card-img-scale:     1.1;      /* zoom on hover */
+  --card-img-transition: transform 700ms ease;
+
+  /* Gallery / Memory card */
+  --card-gallery-radius:  var(--radius-xl);
+  --card-gallery-tall:    360px;
+  --card-gallery-normal:  290px;
+  --card-gallery-wide:    240px;
+  --card-gallery-gap:     var(--space-4);
+
+  /* Why-hire-me card radial glow */
+  --card-why-glow-opacity: 0;
+  --card-why-glow-opacity-hover: 1;
+
+
+/* ═══════════════════════════════════════════════════
+   12 · ICON SIZES
+═══════════════════════════════════════════════════ */
+
+  --icon-2xs:  0.625rem;  /* 10px — micro decorative */
+  --icon-xs:   0.75rem;   /* 12px — inline label icons */
+  --icon-sm:   0.875rem;  /* 14px — button icons */
+  --icon-md:   1rem;      /* 16px — social links */
+  --icon-lg:   1.125rem;  /* 18px — skill card icons */
+  --icon-xl:   1.375rem;  /* 22px — why-hire-me icons */
+  --icon-2xl:  1.5rem;    /* 24px — section feature icons */
+  --icon-3xl:  2rem;      /* 32px — hero accent */
+
+  /* Icon container sizes */
+  --icon-wrap-sm:  2rem;    /* 32px */
+  --icon-wrap-md:  2.5rem;  /* 40px */
+  --icon-wrap-lg:  3rem;    /* 48px */
+
+
+/* ═══════════════════════════════════════════════════
+   13 · SECTION & CONTAINER SPACING
+═══════════════════════════════════════════════════ */
+
+  /* Section vertical padding */
+  --section-py:       7rem;   /* 112px  ← py-28 */
+  --section-py-sm:    4rem;   /* 64px   ← condensed sections */
+  --section-py-hero:  6rem;   /* 96px   ← hero top offset */
+
+  /* Section header margin bottom */
+  --section-header-mb: 4rem;  /* 64px */
+
+  /* Container widths */
+  --container-sm:    40rem;    /* 640px  — narrow forms */
+  --container-md:    56rem;    /* 896px  — timeline, education */
+  --container-lg:    72rem;    /* 1152px — general layout */
+  --container-xl:    80rem;    /* 1280px — wide sections */
+  --container-full:  87.5rem;  /* 1400px — max canvas width */
+
+  /* Container horizontal padding */
+  --container-px:    1.5rem;   /* 24px — mobile */
+  --container-px-md: 2rem;     /* 32px — tablet */
+  --container-px-lg: 2.5rem;   /* 40px — desktop */
+
+  /* Grid gaps */
+  --grid-gap-sm: var(--space-4);   /* 16px */
+  --grid-gap-md: var(--space-6);   /* 24px */
+  --grid-gap-lg: var(--space-8);   /* 32px */
+  --grid-gap-xl: var(--space-16);  /* 64px */
+
+
+/* ═══════════════════════════════════════════════════
+   14 · RESPONSIVE BREAKPOINTS
+   Usage: @media (min-width: var(--bp-md)) { }
+   NOTE: CSS custom properties cannot be used in
+   @media queries — use the raw values below.
+   These variables document the scale; reference
+   the raw px in @media rules.
+═══════════════════════════════════════════════════ */
+
+  --bp-xs:   390px;   /* Mobile S  — iPhone 12 mini */
+  --bp-sm:   640px;   /* Mobile L  — large phones */
+  --bp-md:   768px;   /* Tablet    — iPad portrait */
+  --bp-lg:   1024px;  /* Laptop    — breakpoint for nav collapse */
+  --bp-xl:   1280px;  /* Desktop   — standard layout */
+  --bp-2xl:  1440px;  /* Wide      — reference canvas */
+  --bp-3xl:  1920px;  /* Full HD   — large monitors */
+
+
+/* ═══════════════════════════════════════════════════
+   15 · HOVER & INTERACTION EFFECTS
+═══════════════════════════════════════════════════ */
+
+  /* Lift transforms */
+  --hover-lift-xs: translateY(-2px);
+  --hover-lift-sm: translateY(-4px);
+  --hover-lift-md: translateY(-8px);   /* ← standard card hover */
+  --hover-lift-lg: translateY(-12px);  /* ← project card hover */
+
+  /* Scale */
+  --hover-scale-sm:  scale(1.02);
+  --hover-scale-md:  scale(1.05);
+  --hover-scale-lg:  scale(1.10);  /* social icon hover */
+
+  /* Image zoom (gallery) */
+  --hover-img-scale: scale(1.10);   /* applied to img inside overflow:hidden */
+
+  /* Opacity changes */
+  --hover-opacity-link: 0.75;
+  --hover-opacity-badge: 0.9;
+
+  /* Underline decorations */
+  --hover-underline-height: 2px;
+  --hover-underline-color: var(--color-primary);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px var(--color-primary-glow);
+  --focus-ring-offset: 2px;
+
+
+/* ═══════════════════════════════════════════════════
+   16 · ANIMATION DURATIONS & EASINGS
+═══════════════════════════════════════════════════ */
+
+  /* Durations */
+  --duration-instant:  50ms;
+  --duration-fast:     150ms;
+  --duration-base:     200ms;
+  --duration-moderate: 350ms;
+  --duration-slow:     500ms;
+  --duration-slower:   700ms;
+  --duration-crawl:    1000ms;
+
+  /* Easing functions */
+  --ease-linear:       linear;
+  --ease-in:           cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:          cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:       cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:       cubic-bezier(0.22, 1, 0.36, 1);  /* ← primary animation easing */
+  --ease-bounce:       cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Scroll-triggered fade-in defaults */
+  --anim-fadein-y:        40px;      /* initial translateY offset */
+  --anim-fadein-duration: 700ms;
+  --anim-fadein-ease:     var(--ease-spring);
+
+  /* Stagger delay between sibling items */
+  --stagger-xs: 40ms;
+  --stagger-sm: 80ms;
+  --stagger-md: 100ms;
+  --stagger-lg: 150ms;
+
+  /* Floating / levitation animation (hero tech pills) */
+  --float-duration:   3s;
+  --float-distance:   6px;
+  --float-ease:       ease-in-out;
+
+  /* Role text cycle interval */
+  --cycle-duration:   2800ms;
+  --cycle-transition: 400ms;
+
+  /* Pulse (Available badge dot) */
+  --pulse-duration:   1.5s;
+
+  /* Navbar scroll transition */
+  --nav-transition:   500ms ease;
+
+  /* Lightbox image transition */
+  --lightbox-transition: 350ms var(--ease-spring);
+
+  /* Masonry card hover transition */
+  --gallery-card-transition: 350ms var(--ease-spring);
+
+
+/* ═══════════════════════════════════════════════════
+   17 · Z-INDEX SCALE
+═══════════════════════════════════════════════════ */
+
+  --z-below:     -1;
+  --z-base:       0;
+  --z-raised:    10;    /* floating pills, badges */
+  --z-dropdown:  20;    /* dropdowns, popovers */
+  --z-sticky:    50;    /* sticky navbar */
+  --z-overlay:  100;    /* modal backdrops */
+  --z-modal:    200;    /* lightbox, dialogs */
+  --z-toast:    300;    /* toast notifications */
+  --z-tooltip:  400;    /* tooltips */
+
+
+/* ═══════════════════════════════════════════════════
+   18 · OPACITY SCALE
+═══════════════════════════════════════════════════ */
+
+  --opacity-0:    0;
+  --opacity-5:    0.05;
+  --opacity-10:   0.10;
+  --opacity-15:   0.15;
+  --opacity-20:   0.20;
+  --opacity-30:   0.30;
+  --opacity-40:   0.40;
+  --opacity-50:   0.50;
+  --opacity-60:   0.60;
+  --opacity-70:   0.70;
+  --opacity-75:   0.75;
+  --opacity-80:   0.80;
+  --opacity-90:   0.90;
+  --opacity-95:   0.95;
+  --opacity-100:  1;
+
+  /* Context-specific */
+  --opacity-blob:        0.10;   /* ambient background blobs */
+  --opacity-blob-subtle: 0.06;
+  --opacity-img-overlay: 0.85;
+  --opacity-disabled:    0.45;
+  --opacity-placeholder: 0.40;
+
+
+} /* end :root */
+
+
+/* ═══════════════════════════════════════════════════
+   19 · COMPONENT UTILITY CLASSES
+   Drop-in classes for Angular component templates.
+   Compose these with extra BEM modifiers as needed.
+═══════════════════════════════════════════════════ */
+
+/* ── Gradient text ───────────────────────────── */
+.text-gradient-primary {
+  background: var(--gradient-text-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: var(--gradient-text-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-tri {
+  background: var(--gradient-text-tri);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-highlight {
+  background: var(--gradient-text-highlight);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass card ──────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg-card);
+  border: var(--glass-border-base);
+  backdrop-filter: blur(var(--blur-card));
+  -webkit-backdrop-filter: blur(var(--blur-card));
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  transition: var(--card-transition);
+}
+
+.glass-card:hover {
+  transform: var(--hover-lift-md);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Glass navbar ────────────────────────────── */
+.glass-nav {
+  background: var(--glass-bg-nav);
+  border-bottom: var(--glass-border-subtle);
+  backdrop-filter: blur(var(--blur-nav));
+  -webkit-backdrop-filter: blur(var(--blur-nav));
+  transition: var(--nav-transition);
+}
+
+/* ── Badge ───────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1h);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-wide);
+}
+
+.badge--primary {
+  background: var(--color-primary-muted);
+  color: var(--color-blue-400);
+  border: 1px solid var(--color-primary-border);
+}
+
+.badge--secondary {
+  background: var(--color-secondary-muted);
+  color: var(--color-purple-400);
+  border: 1px solid var(--color-secondary-border);
+}
+
+.badge--accent {
+  background: var(--color-accent-muted);
+  color: var(--color-cyan-400);
+  border: 1px solid var(--color-accent-border);
+}
+
+.badge--highlight {
+  background: var(--color-highlight-muted);
+  color: var(--color-amber-400);
+  border: 1px solid var(--color-highlight-border);
+}
+
+.badge--live {
+  position: relative;
+  padding-left: calc(var(--space-3) + var(--space-2h));
+}
+
+.badge--live::before {
+  content: '';
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  animation: badge-pulse var(--pulse-duration) ease-in-out infinite;
+}
+
+/* ── Buttons ─────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--btn-height-md);
+  padding: 0 var(--btn-px-md);
+  border-radius: var(--btn-radius);
+  font-family: var(--btn-font);
+  font-size: var(--btn-text-md);
+  font-weight: var(--btn-weight);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: var(--btn-transition);
+}
+
+.btn:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+.btn--sm {
+  height: var(--btn-height-sm);
+  padding: 0 var(--btn-px-sm);
+  font-size: var(--btn-text-sm);
+}
+
+.btn--lg {
+  height: var(--btn-height-lg);
+  padding: 0 var(--btn-px-lg);
+  font-size: var(--btn-text-lg);
+}
+
+.btn--primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.btn--primary:hover {
+  transform: var(--btn-scale-hover);
+  box-shadow: var(--btn-primary-shadow-hover);
+}
+
+.btn--primary:active {
+  transform: var(--btn-scale-active);
+}
+
+.btn--ghost {
+  background: var(--btn-ghost-bg);
+  border: var(--glass-border-medium);
+  color: var(--btn-ghost-color);
+}
+
+.btn--ghost:hover {
+  background: var(--btn-ghost-bg-hover);
+  transform: var(--btn-scale-hover);
+}
+
+.btn--accent {
+  background: var(--btn-accent-bg);
+  color: var(--btn-accent-color);
+  box-shadow: var(--btn-accent-shadow);
+}
+
+.btn--accent:hover {
+  transform: var(--btn-scale-hover);
+}
+
+.btn--icon {
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+  padding: 0;
+  border-radius: var(--btn-icon-radius);
+  background: var(--glass-bg-light);
+  border: var(--glass-border-base);
+  color: var(--text-secondary);
+}
+
+.btn--icon:hover {
+  color: var(--text-primary);
+  transform: var(--hover-scale-lg);
+}
+
+/* ── Section wrapper ─────────────────────────── */
+.section {
+  position: relative;
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  overflow: hidden;
+}
+
+/* ── Container ───────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: var(--container-px-md); }
+}
+
+@media (min-width: 1024px) {
+  .container { padding-inline: var(--container-px-lg); }
+}
+
+/* ── Section header ──────────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--section-header-mb);
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-4xl), 5vw, var(--text-5xl));
+  font-weight: var(--fw-black);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+/* ── Scroll-reveal fade-in ───────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(var(--anim-fadein-y));
+  transition:
+    opacity var(--anim-fadein-duration) var(--anim-fadein-ease),
+    transform var(--anim-fadein-duration) var(--anim-fadein-ease);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Divider lines ───────────────────────────── */
+.divider-h {
+  height: 1px;
+  background: var(--gradient-line-h);
+  border: none;
+}
+
+.divider-v {
+  width: 1px;
+  background: var(--gradient-line-v);
+}
+
+/* ── Timeline dot ────────────────────────────── */
+.timeline-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  box-shadow: 0 0 16px var(--color-primary-glow);
+  flex-shrink: 0;
+  z-index: var(--z-raised);
+}
+
+/* ── Tech chip ───────────────────────────────── */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2h);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-medium);
+}
+
+/* ── Ambient blob ────────────────────────────── */
+.blob {
+  position: absolute;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  opacity: var(--opacity-blob);
+}
+
+.blob--blue   { background: var(--gradient-blob-blue);   filter: blur(var(--blur-blob)); }
+.blob--purple { background: var(--gradient-blob-purple); filter: blur(var(--blur-blob)); }
+.blob--cyan   { background: var(--gradient-blob-cyan);   filter: blur(var(--blur-blob)); }
+
+/* ── Keyframes ───────────────────────────────── */
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 0.5; transform: translateY(-50%) scale(1.5); }
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(calc(var(--float-distance) * -1)); }
+}
+
+@keyframes float-down {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(var(--float-distance)); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Responsive: masonry columns ─────────────── */
+.masonry {
+  columns: 1;
+  column-gap: var(--card-gallery-gap);
+}
+
+@media (min-width: 640px) {
+  .masonry { columns: 2; }
+}
+
+@media (min-width: 1024px) {
+  .masonry { columns: 4; }
+}
+
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: var(--card-gallery-gap);
+}
+
+/* ── Scrollbar ───────────────────────────────── */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Reveal scrollbar while actively scrolling via JS class */
+.is-scrolling {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(37, 99, 235, 0.4) transparent;
+}
+body {
+  background-color: var(--color-neutral-950);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Placeholder shown when a project/certificate has no image yet */
+.img-placeholder{width:100%;height:100%;min-height:180px;display:grid;place-items:center;font-size:2.5rem;color:var(--color-primary);background:linear-gradient(135deg,var(--color-primary-muted),var(--color-secondary-muted));}
+
+/* ═════════ Motion & polish layer ═════════ */
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(640px 420px at 12% 8%,rgba(59,130,246,.14),transparent 70%),
+             radial-gradient(560px 420px at 88% 55%,rgba(139,92,246,.12),transparent 70%),
+             radial-gradient(480px 360px at 30% 95%,rgba(34,211,238,.08),transparent 70%);}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:84px}
+
+.scroll-progress{position:fixed;top:0;left:0;height:3px;z-index:1000;width:0;
+  background:linear-gradient(90deg,var(--color-blue-500),var(--color-purple-500),var(--color-cyan-400));
+  box-shadow:0 0 12px rgba(96,165,250,.7)}
+
+/* scroll reveal (classes are added/removed by AppComponent) */
+.reveal{opacity:0;transform:translateY(30px);
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.reveal.in-view{opacity:1;transform:none}
+
+/* hero: one orchestrated entrance */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-content>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero-content>*:nth-child(1){animation-delay:.05s}.hero-content>*:nth-child(2){animation-delay:.18s}
+.hero-content>*:nth-child(3){animation-delay:.31s}.hero-content>*:nth-child(4){animation-delay:.44s}
+.hero-content>*:nth-child(5){animation-delay:.57s}.hero-content>*:nth-child(6){animation-delay:.7s}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.hero-visual .image-wrapper{animation:pop 1s cubic-bezier(.2,.7,.2,1) .3s both}
+@keyframes shimmer{to{background-position:200% center}}
+.text-gradient-primary{background-size:200% auto;animation:shimmer 6s linear infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-22px) scale(1.08)}}
+.hero-blob{animation:drift 9s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-visual .code-card{animation:bob 6s ease-in-out infinite}
+
+/* navbar */
+.navbar{transition:box-shadow .3s,background-color .3s}
+body.scrolled .navbar{box-shadow:0 10px 30px -10px rgba(0,0,0,.55)}
+.nav-link{position:relative}
+.nav-link::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--color-blue-400),var(--color-cyan-400));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+.nav-link.active{color:var(--color-cyan-400)!important}
+
+/* buttons: light sweep */
+.btn--primary{position:relative;overflow:hidden}
+.btn--primary::after{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn--primary:hover::after{left:140%}
+.btn--icon{transition:transform .25s,box-shadow .25s!important}
+.btn--icon:hover{transform:translateY(-4px) rotate(-6deg)!important;box-shadow:0 10px 24px -8px rgba(96,165,250,.7)}
+
+/* cards: lift + glow on hover */
+.project-card,.cert-card,.skill-card,.soft-card,.stat-card,.training-card,.info-card{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s!important}
+.project-card:hover,.cert-card:hover,.skill-card:hover,.soft-card:hover,.stat-card:hover,.training-card:hover,.info-card:hover{
+  transform:translateY(-8px)!important;border-color:rgba(96,165,250,.55)!important;
+  box-shadow:0 24px 50px -22px rgba(59,130,246,.55)!important}
+.project-img,.cert-img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.project-card:hover .project-img,.cert-card:hover .cert-img{transform:scale(1.07)}
+.soft-card:hover .icon-wrapper{transform:rotate(-8deg) scale(1.1)}
+.icon-wrapper{transition:transform .35s}
+
+/* timeline: pulsing dots */
+@keyframes dotPulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,.55)}70%{box-shadow:0 0 0 14px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
+.timeline-dot{animation:dotPulse 2.6s infinite}
+
+/* keyboard focus + reduced motion */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--color-cyan-400);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+
+/* ═════════ Contact form states, marquee, back-to-top, cursor glow ═════════ */
+.hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
+.form-status{margin-top:14px;display:flex;gap:8px;align-items:center;font-size:.92rem;animation:rise .5s both}
+.form-status.ok{color:#34d399}.form-status.err{color:#f87171}
+.form-input{transition:border-color .25s,box-shadow .25s}
+.form-input:focus{border-color:var(--color-blue-400);box-shadow:0 0 0 4px rgba(96,165,250,.18);outline:none}
+.btn--submit[disabled]{opacity:.7;cursor:wait}
+
+.marquee{overflow:hidden;padding:18px 0;border-block:1px solid rgba(148,163,184,.15);
+  background:rgba(15,23,42,.35);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:marquee 32s linear infinite}
+.marquee-track span{display:inline-flex;align-items:center;gap:12px;font-family:'Poppins',sans-serif;font-weight:600;font-size:1.05rem;color:var(--color-blue-200);white-space:nowrap}
+.marquee-track i{font-size:.4rem;color:var(--color-cyan-400)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.to-top{position:fixed;right:22px;bottom:22px;z-index:900;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;color:#fff;
+  background:linear-gradient(135deg,var(--color-blue-500),var(--color-purple-500));box-shadow:0 10px 24px -8px rgba(99,102,241,.8);
+  opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s,transform .3s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{transform:translateY(-4px)}
+
+.cursor-glow{position:fixed;top:0;left:0;width:400px;height:400px;z-index:-1;pointer-events:none;opacity:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(96,165,250,.16),transparent 65%);transition:opacity .4s}
+@media (hover:none){.cursor-glow{display:none}}
